@@ -6,7 +6,9 @@ import ToDoForm from "./ToDoForm";
 import './App.css';
 
 function App() {
+
   const [ toDoList, setToDoList ] = useState(data);
+
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
       return task.id === Number(id) ? { ...task, complete: !task.complete}: {...task};
@@ -20,9 +22,10 @@ function App() {
     setToDoList(filtered);
   }
   const addTask = (userInput) => {
-    let copy = [... toDoList];
-    copy = [... copy, {id: toDoList.length + 1, task: userInput, complete: false}];
+    let copy = [...toDoList];
+    copy = [...copy, {id: toDoList.length + 1, task: userInput, complete: false}];
     setToDoList(copy);
+    // copy.push({id: toDoList.lenght + 1, task: userInput, complete: false});
   }
   return (
     <div className="App">
@@ -34,7 +37,7 @@ function App() {
   
   
   
-  
+
 }
 
 export default App;

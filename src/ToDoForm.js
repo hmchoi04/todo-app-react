@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import {addtask} from "./App";
+
 const ToDoForm = ({addTask}) => {
-    const [userInput, setUserInput] = useState('');
+    const [ userInput, setUserInput ] = useState('');
    
     const handleChange = (e) => {
         setUserInput(e.currentTarget.value)
-}
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         addTask(userInput);
@@ -13,7 +13,7 @@ const ToDoForm = ({addTask}) => {
     }
     return (
         <form onSubmit={handleSubmit}>
-            <input value={userInput} type="text" onChange={handleChange} placeholder=""/>
+            <input value={userInput} type="text" onChange={handleChange} placeholder="Task"/>
             <button>Submit</button>
         </form>
     );
