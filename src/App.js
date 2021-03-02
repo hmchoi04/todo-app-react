@@ -8,8 +8,8 @@ class App extends Component {
     
     this.state= {
       newItem:"",
-      list:[]
-    }
+      list: []
+    };
   }
 updateInput(key, value) {
   this.setState({
@@ -18,20 +18,20 @@ updateInput(key, value) {
 }
 
   addItem() {
-    const item={
+    const newItem={
       id: 1 + Math.random(),
-      value: this.state.item.slice()
+      value: this.state.newItem.slice()
     };
     const list = [...this.state.list];
-    list.push(item);
+    list.push(newItem);
     this.setState({
       list, 
-      item:""
+      newItem:""
     });
   }
 
   deleteItem(id) {
-    const list = [...list.state.list];
+    const list = [...this.state.list];
     const updatedList = list.filter(item => item.id !== id);
     this.setState({list: updatedList});
 
@@ -70,41 +70,5 @@ updateInput(key, value) {
   }
 }
 
-// function App() {
-
-
-
-  // const [ toDoList, setToDoList ] = useState(data);
-
-  // const handleToggle = (id) => {
-  //   let mapped = toDoList.map(task => {
-  //     return task.id === Number(id) ? { ...task, complete: !task.complete}: {...task};
-  //   });
-  //   setToDoList(mapped);
-  // }
-  // const handleFilter = () => {
-  //   let filtered = toDoList.filter(task => {
-  //     return !task.complete;
-  //   });
-  //   setToDoList(filtered);
-  // }
-  // const addTask = (userInput) => {
-  //   let copy = [...toDoList];
-  //   copy = [...copy, {id: toDoList.length + 1, task: userInput, complete: false}];
-  //   setToDoList(copy);
-  //   // copy.push({id: toDoList.lenght + 1, task: userInput, complete: false});
-  // }
-  // return (
-  //   <div className="App">
-  //     <Header/>
-  //     <ToDoList toDoList = {toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
-  //     <ToDoForm addtask={addTask}/>
-  //   </div>
-  // );
-  
-  
-  
-
-// }
 
 export default App;
