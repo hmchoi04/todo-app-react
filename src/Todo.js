@@ -5,7 +5,7 @@ import AddNewTodoForm from './AddNewTodoForm';
 import {getTodoItemsFromLocalStorage, saveTodoItemsToLocalStorage} from './helpers'
 
 
-const ToDo = () => {
+const Todo = () => {
   const [todoItems, setTodoItems] = useState(getTodoItemsFromLocalStorage('todo') || [])
   const addToHandler = useCallback(todo => {
     let latesetTodoItem = null
@@ -33,10 +33,10 @@ const removeTodoHandler = useCallback(id => {
   saveTodoItemsToLocalStorage('todo', newTodoItems)
 }, [todoItems])
 
-const toggleTodoDoneHanlder = useCallback(id => {
+const toggleTodoDoneHandler = useCallback(id => {
   const todo = todoItems.find(todoItem => todoItem.id ===id)
   todo.isDone = !todo.isDone
-  setTodoItems([todoItems])
+  setTodoItems([...todoItems])
   saveTodoItemsToLocalStorage('todo', todoItems)
 }, [todoItems])
 
