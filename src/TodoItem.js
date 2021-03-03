@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useCallback } from 'react';
  
-const TodoItem = ({ todo }) => (
-    <li>
-        {todo}
-    </li>
-)
+const TodoItem = ({ todo, id, onRemoveTodo, onToggleTodoDone, isDone }) => {
+    const removeTodoHandler = useCallback(() => onRemoveTodo(id), [id, onRemoveTodo])
+    const toggleTodoDoneHandler = useCallback(() => onToggleTodoDone(id), [id, onToggleTodoDone])
+    return (
+        <li>
+            <span style={{textDecoration: isDone ? 'line-through': 'none'}}>{todo}</span>
+            <button onClick={removeTodoHandler}>Delete</button>
+        </li>
+    )
+}
 
-export default TodoItem
+export default React.memo(TodoItem);
