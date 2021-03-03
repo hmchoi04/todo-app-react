@@ -7,6 +7,7 @@ const TodoItem = ({ todo, id, onRemoveTodo, onToggleTodoDone, isDone }) => {
         <li>
             <span style={{textDecoration: isDone ? 'line-through': 'none'}}>{todo}</span>
             <button onClick={removeTodoHandler}>Delete</button>
+            <button onClick={toggleTodoDoneHandler}>{`Mark as ${isDone ? 'pending': 'done'}`} </button>
         </li>
     )
 }
